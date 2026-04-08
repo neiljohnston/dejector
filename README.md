@@ -6,18 +6,18 @@
 
 AI agents like OpenClaw process untrusted content — emails, uploaded documents, community skills. Any of these can contain **prompt injection attacks**: hidden instructions designed to manipulate the agent into leaking data, executing commands, or behaving unexpectedly.
 
-DEJECTOR sits between untrusted content and your agent as a blocking gate.
+DEJECTOR sits between untrusted content and your agent as a blocking gate.  As such OpenClaw never sees untrusted content, until it is reviewed by independent local classifiers with less vulnerability to attack than an LLM.
 
 ## How It Works
 
-Two fine-tuned DeBERTa classifiers scan text for injection patterns:
+Two fine-tuned DeBERTa classifiers running locally on your machine scan text for injection patterns:
 
 | Model | Size | Speed | Role |
 |-------|------|-------|------|
 | [testsavantai/prompt-injection-defender-base-v0](https://huggingface.co/testsavantai/prompt-injection-defender-base-v0) | 257MB | ~37ms | Primary |
 | [deepset/deberta-v3-base-injection](https://huggingface.co/deepset/deberta-v3-base-injection) | 715MB | ~60ms | Ensemble confirm |
 
-In ensemble mode, both must agree for rejection. This eliminates false positives while catching real attacks.
+In ensemble mode, both classifiers must agree for rejection. This reduces false positives in catching potential attacks.
 
 **Key insight:** These are classifiers, not LLMs. They output `SAFE`/`INJECTION` labels only — no text generation, no prompt to jailbreak, no way to "talk them into" bypassing themselves.
 
