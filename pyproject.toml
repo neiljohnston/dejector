@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dejector"
+version = "0.1.0"
+description = "Prompt injection detection for emails, documents, and AI agent skills"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Neil Johnston", email = "njohnstonart@gmail.com" },
+]
+keywords = ["prompt-injection", "security", "llm", "ai-safety", "openclaw"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "transformers>=4.40.0",
+    "torch>=2.0.0",
+    "sentencepiece>=0.2.0",
+]
+
+[project.optional-dependencies]
+full = [
+    "pypdf>=4.0.0",
+    "python-docx>=1.0.0",
+    "beautifulsoup4>=4.12.0",
+]
+
+[project.scripts]
+dejector = "dejector.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/njohnston/dejector"
+Repository = "https://github.com/njohnston/dejector"
+
+[tool.setuptools.packages.find]
+include = ["dejector*"]

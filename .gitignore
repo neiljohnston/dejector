@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+*.so
+.cache/
+skills-repo/
+test-clean/
+test-rejected/
+test-quarantine/
+test-report.csv
+gmail-logs/
+*.jsonl

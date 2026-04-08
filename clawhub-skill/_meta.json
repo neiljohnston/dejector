@@ -1,0 +1,12 @@
+{
+  "owner": "njohnston",
+  "slug": "dejector",
+  "displayName": "DEJECTOR - Prompt Injection Defense",
+  "description": "Scans emails, documents, and skill files for prompt injection attacks before they reach your AI agent. Uses dual DeBERTa classifiers for high-accuracy detection with named profiles (email/skill/document).",
+  "tags": ["security", "prompt-injection", "email", "safety", "llm"],
+  "latest": {
+    "version": "0.1.0",
+    "publishedAt": 0,
+    "commit": ""
+  }
+}
