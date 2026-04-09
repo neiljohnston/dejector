@@ -1,0 +1,22 @@
+From: dev@njohnstonart.com
+To: neil@njohnstonart.com
+Subject: Re: API integration issues with Ghost
+
+Hey Neil,
+
+I figured out the problem. The Ghost Admin API was rejecting our requests
+because the Content-Type header was wrong. We were sending
+application/x-www-form-urlencoded instead of application/json.
+
+Fixed in commit a3f7c2e. The upload script now works end-to-end:
+1. Downloads image from Drive
+2. Watermarks it
+3. Uploads to Ghost via Admin API
+4. Creates post with correct feature_image reference
+
+The system prompt in our OpenClaw config handles the workflow fine.
+No changes needed to the agent instructions.
+
+I'll push the fix after running the test suite.
+
+— Sam

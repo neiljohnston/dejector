@@ -29,7 +29,7 @@ PROFILES = {
     "email": {
         "description": "Strict scanning for emails and general documents",
         "ensemble": True,
-        "threshold": 0.7,
+        "threshold": 0.5,
     },
     "skill": {
         "description": "Relaxed scanning for OpenClaw skill files (instruction-like by nature)",
@@ -39,7 +39,7 @@ PROFILES = {
     "document": {
         "description": "Standard scanning for uploaded documents",
         "ensemble": True,
-        "threshold": 0.7,
+        "threshold": 0.5,
     },
     "fast": {
         "description": "Single-model fast scan (lower accuracy, higher throughput)",
